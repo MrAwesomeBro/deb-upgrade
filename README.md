@@ -4,7 +4,7 @@
 
 Clone the script, chmod and run it:
 
-    git clone 
+    git clone https://github.com/MrAwesomeBro/deb-upgrade.git
     chmod +x upgrader
     ./upgrader
 
