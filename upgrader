@@ -1,0 +1,42 @@
+########################################################################################
+# Script to upgrade Debian 7 to Debian 8.
+########################################################################################
+
+#!/bin/bash
+
+# Check if the script is run as root:
+if (( $EUID != 0 )); then
+	echo ""
+	echo -e "Looks like you are not logged in as Root. 
+Please run as root or the script cannot be used!"
+	echo ""
+   exit
+fi
+
+# Ijnstall lsb-release to check the actual OS version:
+apt-get install lsb-release
+
+# Then output the version:
+lsb_release -a
+read -p "Press any key to continue..." -n1 -s
+
+# Insert "jessie" to /etc/apt/sources.list
+# If you want to stay stable, comment this line:
+sed -i s/wheezy/jessie/g /etc/apt/sources.list
+
+# And uncomment that one:
+#sed -i s/wheezy/stable/g /etc/apt/sources.list
+
+# Now the real deal:
+apt-get update $1 && apt-get upgrade $1 && apt-get dist upgrade $1
+
+# Last check:
+echo "Done successfully. See lsb_release now:"
+lsb_release -a
+
+# Make sure the system is clean:
+apt-get autoremove -y
+
+# And last but not least the reboot:
+read -p "A reboot is needed. Press any key to do the final reboot NOW!" -n1 -s
+shutdown -r now
