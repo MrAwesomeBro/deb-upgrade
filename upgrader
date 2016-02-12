@@ -28,7 +28,7 @@ sed -i s/wheezy/jessie/g /etc/apt/sources.list
 #sed -i s/wheezy/stable/g /etc/apt/sources.list
 
 # Now the real deal:
-apt-get update $1 && apt-get upgrade $1 && apt-get dist upgrade $1
+apt-get update $1 && apt-get upgrade $1 && apt-get dist-upgrade $1
 
 # Last check:
 echo "Done successfully. See lsb_release now:"
