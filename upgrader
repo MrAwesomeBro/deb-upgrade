@@ -13,7 +13,7 @@ Please run as root or the script cannot be used!"
    exit
 fi
 
-# Ijnstall lsb-release to check the actual OS version:
+# Install lsb-release to check the actual OS version:
 apt-get install lsb-release
 
 # Then output the version:
