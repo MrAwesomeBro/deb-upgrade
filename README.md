@@ -6,7 +6,9 @@ Clone the script, chmod and run it:
 
     git clone https://github.com/MrAwesomeBro/deb-upgrade.git
     chmod +x upgrader
-    ./upgrader
+    ./upgrader -y
+
+Use **-y** only if you do not want to answer all questions with **yes** manually.
 
 ### If you want to use "Stable":
 
